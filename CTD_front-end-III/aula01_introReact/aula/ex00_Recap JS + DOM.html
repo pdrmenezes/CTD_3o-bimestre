@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recap JS + DOM</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+      var container = document.getElementById("container");
+      var h1 = document.createElement("h1");
+      var contentH1 = document.createTextNode("Olá Mundo");
+
+      h1.appendChild(contentH1);
+      container.appendChild(h1);
+    </script>
+  </body>
+</html>

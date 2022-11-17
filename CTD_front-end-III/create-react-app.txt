@@ -1,0 +1,34 @@
+# com npx
+# npx = gerenciador de pacotes
+# nome-do-projeto tem que ser separado por traços e não deve ter letras maiúsculas
+npx create-react-app nome-do-projeto
+cd nome-do-projeto
+npm start
+
+
+# com npm
+npm init react-app nome-do-projeto
+
+# instalar router pra sites com mais de uma página
+npm install react-router-dom
+npm install axios
+-- ou todos na mesma linha --
+npm install react-router-dom axios miragejs
+
+
+# com yarn
+yarn create react-app nome-do-projeto
+yarn start
+
+
+### usando vite ###
+
+npm create vite@latest nome-do-projeto -- --template react
+
+yarn create vite nome-do-projeto --template react
+
+ou pra projetos com TS
+
+npm create vite@latest nome-do-projeto -- --template react-ts
+
+yarn create vite nome-do-projeto --template react-ts

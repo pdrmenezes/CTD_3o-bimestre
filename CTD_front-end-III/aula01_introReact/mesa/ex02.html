@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>React 2</title>
+  </head>
+  <body>
+    <section class="cards-grid">
+      <!-- CARDS TEMPLATE -->
+
+      <!-- <div class="card">
+        <img class="thumb" src="./81840010.jpg" alt="" />
+        <div class="text">
+          <h3>Nome Sobrenome</h3>
+          <p>🍿 🍷 🧁</p>
+          <p>Cidade - UF</p>
+          <p>Descrição curta</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="thumb" src="./81840010.jpg" alt="" />
+        <div class="text">
+          <h3>Nome Sobrenome</h3>
+          <p>🍿 🍷 🧁</p>
+          <p>Cidade - UF</p>
+          <p>Descrição curta</p>
+        </div>
+      </div> -->
+    </section>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      const name = React.createElement("h3", {}, "Pedro Menezes");
+      const emojis = React.createElement("p", {}, "🥜 🥜 🥜");
+      const city = React.createElement(
+        "p",
+        { style: { fontWeight: "bold" } },
+        "Recife - PE"
+      );
+      const description = React.createElement(
+        "p",
+        { style: { fontSize: "0.8rem" } },
+        "lorem ipsum dolor sit amet, consectetur"
+      );
+      const text = React.createElement("div", { class: "text" }, [
+        name,
+        emojis,
+        city,
+        description,
+      ]);
+      const thumb = React.createElement(
+        "img",
+        { src: "./81840010.jpg", class: "thumb" },
+        null
+      );
+      const card = React.createElement(
+        "div",
+        { class: "card", style: { fontFamily: "sans-serif" } },
+        [thumb, text]
+      );
+
+      // renderizando o container que é composto por 2 elementos dentro da div#container já existente
+      ReactDOM.render(
+        [card, card, card, card, card, card],
+        document.querySelector(".cards-grid")
+      );
+    </script>
+  </body>
+</html>

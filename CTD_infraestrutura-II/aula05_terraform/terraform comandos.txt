@@ -1,0 +1,14 @@
+# inicializa o terraform e baixa módulos/dependências
+<terraform init>
+
+# testar se o "plano" está funcionando
+<terraform plan>
+
+# validar arquivos
+<terraform validate>
+
+# testar alguma atualização nos docs e rodar
+<terraform apply>
+
+# baseado nos arquivos da pasta, destrói tudo que pode
+<terraform destroy>

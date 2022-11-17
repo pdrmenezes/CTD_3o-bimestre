@@ -1,0 +1,7 @@
+FROM openjdk:11
+WORKDIR /helloWorld/
+COPY HelloWorld.java /helloWorld/
+# 'javac' compila o arquivo java ~~ no terminal, é só usar 'javac nomedoarquivo.java' pra compilá-lo
+# pra executar o arquivo '.class' gerado a partir da compilação é só digitar no terminal 'java nomedoarquivo'
+RUN ["javac", "HelloWorld.java"]
+ENTRYPOINT ["java", "HelloWorld"]

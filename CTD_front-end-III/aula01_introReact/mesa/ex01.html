@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      // criando o elemento h1 com suas propriedades e conteúdo
+      var h1 = React.createElement(
+        "h1",
+        { id: "title", style: { color: "tomato", width: "100%" } },
+        "Olá mundo!"
+      );
+
+      // criando o elemento h3 com suas propriedades e conteúdo
+      var h3 = React.createElement(
+        "h3",
+        {
+          style: {
+            display: "flex",
+            width: "max-content",
+            padding: "10px 15px",
+            backgroundColor: "#333",
+            color: "#efefef",
+          },
+        },
+        "Dafne Barbosa – Pedro Menezes – Murilo César – Renan de Andrade – Paulo Rossi – Kantuta Molina"
+      );
+
+      // criando o elemento h4 com suas propriedades e conteúdo
+      var h4 = React.createElement(
+        "h4",
+        {
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            width: "max-content",
+            margin: "1rem",
+            padding: "10px 15px",
+            backgroundColor: "#333",
+            color: "#efefef",
+          },
+        },
+        "20 – 20 – 20 – 20 – 20 – 20"
+      );
+
+      // criando o elemento h5 com suas propriedades e conteúdo
+      var h5 = React.createElement(
+        "h5",
+        {
+          style: {
+            padding: "10px 15px",
+            backgroundColor: "#333",
+            color: "#efefef",
+          },
+        },
+        "Manaus – Manaus – Manaus – Manaus – Manaus – Manaus"
+      );
+
+      // criando o primeiro parágrafo
+      var p1 = React.createElement(
+        "p",
+        { style: { width: "100%", fontFamily: "Sans-serif" } },
+        "1º parágrafo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra."
+      );
+
+      // criando o segundo elemento do tipo p
+      var p2 = React.createElement(
+        "p",
+        { style: { width: "100%", fontFamily: "Sans-serif" } },
+        "2º parágrafo: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+      );
+
+      // criando um container com o h1 e o h3 pra renderizar os 2 elementos ao mesmo tempo
+      var container = React.createElement(
+        "div",
+        { style: { display: "flex", margin: "0.8rem", flexWrap: "wrap" } },
+        [h1, h3, h4, h5, p1, p2]
+      );
+
+      // renderizando o container que é composto por 2 elementos dentro da div#container já existente
+      ReactDOM.render(container, document.getElementById("container"));
+    </script>
+  </body>
+</html>

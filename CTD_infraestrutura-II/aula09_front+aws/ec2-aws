@@ -1,0 +1,32 @@
+criando instância backend
+- criando instância ubuntu
+- par de chaves
+- proteção contra encerramento
+- liberando porta 8080
+- clicar em conectar na instância e conectando via terminal 
+	- ocultar chave: <chmod 400 CTD-ECOMMERCE-G2.PEM>
+	- conectar usando a chave ssh <ssh -i “CTD-ECOMMERCE-G2.pem” ubuntu@ec2-18-221-34-71.us-east-2.compute.amazonaws.com>
+
+após conectado no backend
+1. sudo apt-get update
+2. curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+3. sudo apt -y install nodejs
+# checar se o npm já voi instalado
+4. npm -version
+# se não estiver instalado, instalar
+4.1 sudo apt -y install npm
+# verificar se a baseURL já está com o IP do backend correto
+5. git clone https://github.com/usuario/repositórioDoFront.git
+# na pasta com o package.json (usando cd nomedapasta)
+6. npm install 
+# na pasta do projeto onde tem o package.json (# “nohup” desvincula a aplicação do terminal)
+7. nohup npm start &
+
+
+- configurar instância
+- alterar proteção contra encerramento
+- habilitar portas necessárias
+- instalar os na ec2
+- instalar node pra react / maven pra spring
+- clonar repositório
+- inicializar aplicação

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      // criando o elemento h1 com suas propriedades e conteúdo
+      var h1 = React.createElement(
+        "h1",
+        { id: "title", style: { color: "tomato" } },
+        "Hello World"
+      );
+
+      // criando o elemento button com suas propriedades e conteúdo
+      var button = React.createElement(
+        "button",
+        {
+          onClick: () => alert("ok"),
+          style: {
+            padding: "10px 15px",
+            backgroundColor: "#333",
+            color: "#efefef",
+            border: "none",
+          },
+        },
+        "Enviar"
+      );
+
+      // criando um container com o h1 e o button pra renderizar os 2 elementos ao mesmo tempo
+      var container = React.createElement("div", {}, [h1, button]);
+
+      // renderizando o container que é composto por 2 elementos dentro da div#container já existente
+      ReactDOM.render(container, document.getElementById("container"));
+    </script>
+  </body>
+</html>

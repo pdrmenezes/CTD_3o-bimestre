@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <!-- importando react versão development -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <!-- importando Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX é JavaScript com XML para criação de componentes em React -->
+    <!-- Babel faz a transpilação de JSX para código entendido pelo navegador -->
+    <script type="text/babel">
+      const h1 = "Lista de compras";
+
+      const arrayDeFrutas = ["Laranja", "Pêra", "Goiaba", "Banana", "Maracujá"];
+      // usando .map() pra percorrer o array e aplicar no html
+      // arrayDeFrutas.map((item) => {});
+
+      var container = (
+        <div>
+          <h1
+            className="title"
+            style={{ color: "#333", fontFamily: "sans-serif" }}
+          >
+            {h1}
+          </h1>
+          <ul>
+            {arrayDeFrutas.map((item, index) => {
+              return <li key={index}>{item}</li>;
+            })}
+
+            <p></p>
+
+            <li>{arrayDeFrutas[0]}</li>
+            <li>{arrayDeFrutas[1]}</li>
+            <li>{arrayDeFrutas[2]}</li>
+            <li>{arrayDeFrutas[3]}</li>
+          </ul>
+        </div>
+      );
+      // renderizando o container dentro da div#container já existente
+      ReactDOM.render(container, document.getElementById("container"));
+    </script>
+  </body>
+</html>

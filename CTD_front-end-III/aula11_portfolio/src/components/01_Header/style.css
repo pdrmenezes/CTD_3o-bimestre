@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  font-family: sans-serif;
+  padding: 0 20px;
+}
+
+header > img {
+  width: 200px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.item-menu {
+  margin: 0 20px;
+  font-size: 1.3rem;
+}

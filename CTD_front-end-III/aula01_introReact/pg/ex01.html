@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Criando elementos com React</title>
+  </head>
+  <body>
+    <script
+      crossorigin=""
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin=""
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      const create = React.createElement;
+
+      const newSpan = create("span", "Mundo");
+      const newP = create("p", null, `Olá ${newSpan}`);
+      const newH2 = create("h2", null, "OLÁ");
+      const div_el = create("div", null, [newH2, newP]);
+
+      ReactDOM.render(div_el, document.getElementById("root"));
+    </script>
+  </body>
+</html>

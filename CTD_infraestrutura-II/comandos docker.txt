@@ -1,0 +1,202 @@
+___ COMANDOS - PEDRO ___
+
+### criando imagem e rodando container ###
+
+#1 Criar a imagem pra ser executada em um container com "docker build .(ponto pra dizer em que diretório está o dockerfile) -t(pra criar uma tag com o nome da imagem) nomedaimagem"
+<docker build . -t imagemhellowolrd>
+
+#2 Rodar imagem "docker run -d(pra rodar solto do terminal, permite fechar o terminal e o container continua rodando) nomedaimagem"
+<docker run -d imagemhelloworld>
+
+
+### apagar imagens e containers ###
+
+# Apagar todos os containers e volumes do docker
+<docker system prune --all --force --volumes>
+
+# Apagar 1 container específico
+<docker ps -a> pra listar os containers e pegar a id
+<docker container rm iddocontainer>
+
+# Apagar 1 imagem específica "-a" serve pra mostrar todas as imagens em utilização ou não "all"
+<docker images -a>
+<docker image rmi iddaimagem>
+
+### docker-compose ###
+
+# rodar um docker-compose.yml com docker-compose up -d(pra rodar independente do terminal)
+<docker-compose up -d>
+
+# derrubar e excluir o(s) container(s) (não a(s) imagem(ns))
+<docker-compose down>
+
+
+
+------------------------------------------------------------
+
+docker build image 
+docker image build -t REPOSITORIO_GIT/PASTA:TAG .
+
+# listar containers e imagens rodando ou não
+docker container ls -a
+docker image ls -a
+
+# Publicar no Docker-HUB
+docker image push REPOSITORIO_GIT/gsd:first-ctr
+
+# Remover imagem localmente
+docker image rm REPOSITORIO_GIT/gsd:first-ctr
+
+# Rodar imagem localmente ou remota (não existe na máquina)
+docker container run -d --name web -p 8000:8080 REPOSITORIO_GIT/gsd:first-ctr
+
+# Iniciar o container
+docker container start web //digitar nome do container
+
+# Parar o container
+docker container stop web //digitar nome do container
+
+# Remover container
+docker container rm web
+
+# Rodar container com terminal habilitado
+docker container run -it --name test alpine sh
+docker service rm web
+
+## DOCKER MICROSERVICES ##
+docker swarm init
+docker swarm leave --force
+
+# Conferir os itens do nó
+docker node ls
+docker service ls
+docker container ls
+docker service ps web
+
+# Adicionar outro controller
+docker swarm join-token manager
+
+# Adicionar o worker
+docker swarm join --token SWMTKN-1-2g37e7qgc4l9k4m3o4clz3dsgkxhp6bw0pvv716tnfdkdfcxg5-42sum98kk4yie960lblhrerf2 192.168.65.3:2377
+
+# Criando réplicas
+docker service create --name web -p 8080:8080 --replicas 3 REPOSITORIO_GIT/gsd:first-ctr
+
+# Escalando a aplicação
+docker service scale web=10 (criar mais réplicas até chegar a 10)
+
+# Removendo as répliacs
+docker container rm ID_DO_CONTAINER --force (pois estão rodando)
+
+# Limpando todas as configurações do serviço 
+docker service rm web
+
+## STACKS DO DOCKER ##
+docker image build -t REPOSITORIO_GIT/gsd:swarm-stack .
+docker image push REPOSITORIO_GIT/gsd:swarm-stack
+docker stack deploy -c docker-compose.yml counter
+
+docker stack ps
+docker stack services counter
+docker stack ps counter
+
+---------------------------------------------------------------
+
+docker system prune --all --force --volumes Todos os contêineres parados Todas as redes não usadas pelo menos por um contâiner Todos os volumes não usados por pelo menos um contêiner Todas as imagens sem nenhum contêiner associado Todo o cache build pendente
+
+docker container ls Lista os contêineres que estão em execução. (docker ps)
+
+docker container ls -a Lista todos os contêineres. (docker ps -a)
+
+docker image ls Lista as imagens (docker images)
+
+docker volume ls Lista os volumes
+
+docker network ls Lista as redes
+
+docker info Lista a quantidade de contêineres e imagens e informações do ambiente
+
+docker run --name nomeContainer nomeImagem
+
+docker exec apache cat /etc/os-release mostra informações sobre o SO do container
+
+exportar imagem baseada em um container:
+
+#criar container e abrir um terminal interativo
+
+docker container run -it --name containercriado ubuntu:latest bash
+
+#comando linux para install e update
+
+apt-get update apt-get install nginx -y
+
+#sair do terminal interativo
+
+exit
+
+#pausar container
+
+docker stop containercriado
+
+#fazer commit (criar a imagem baseada no container) verificar se o repositório é o mesmo do seu repo no Docker Hub
+
+docker container commit containercriado nomerepo/nomeimagem:version
+
+#verificar se a imagem foi criada
+
+docker images -a
+
+#fazer o push para o docker hub
+
+docker push nomerepo/nomeimagem:version
+
+------------------- Segue a lista de comandos docker e sua utilidade:
+
+> docker attach – Acessar dentro do container e trabalhar a partir dele.
+> docker build – A partir de instruções de um arquivo Dockerfile eu possa criar uma imagem.
+> docker commit – Cria uma imagem a partir de um container.
+> docker cp – Copia arquivos ou diretórios do container para o host.
+> docker create – Cria um novo container.
+> docker diff – Exibe as alterações feitas no filesystem do container.
+> docker events – Exibe os eventos do container em tempo real.
+> docker exec – Executa uma instrução dentro do container que está rodando sem precisar atachar nele.
+> docker export – Exporta um container para um arquivo .tar.
+> docker history – Exibe o histórico de comandos que foram executados dentro do container.
+> docker images – Lista as imagens disponíveis no host.
+> docker import – Importa uma imagem .tar para o host.
+> docker info – Exibe as informações sobre o host.
+> docker inspect – Exibe r o json com todas as configurações do container.
+> docker kill – Da Poweroff no container.
+> docker load – Carrega a imagem de um arquivo .tar.
+> docker login – Registra ou faz o login em um servidor de registry.
+> docker logout – Faz o logout de um servidor de registry.
+> docker logs – Exibe os logs de um container.
+> docker port – Abre uma porta do host e do container.
+> docker network – Gerenciamento das redes do Docker.
+> docker node – Gerenciamento dos nodes do Docker Swarm.
+> docker pause – Pausa o container.
+> docker port – Lista as portas mapeadas de um container.
+> docker ps – Lista todos os containers.
+> docker pull – Faz o pull de uma imagem a partir de um servidor de registry.
+> docker push – Faz o push de uma imagem a partir de um servidor de registry.
+> docker rename – Renomeia um container existente.
+> docker restart – Restarta um container que está rodando ou parado.
+> docker rm – Remove um ou mais containeres.
+> docker rmi – Remove uma ou mais imagens.
+> docker run – Executa um comando em um novo container.
+> docker save – Salva a imagem em um arquivo .tar.
+> docker search – Procura por uma imagem no Docker Hub.
+> docker service – Gernciamento dos serviços do Docker.
+> docker start – Inicia um container que esteja parado.
+> docker stats – Exibe informações de uso de CPU, memória e rede.
+> docker stop – Para um container que esteja rodando.
+> docker swarm – Clusterização das aplicações em uma orquestração de várias containers, aplicações junto.
+> docker tag – Coloca tag em uma imagem para o repositorio.
+> docker top – Exibe os processos rodando em um container.
+> docker unpause – Inicia um container que está em pause.
+> docker update – Atualiza a configuração de um ou mais containers.
+> docker version – Exibe as versões de API, Client e Server do host.
+> docker volume – Gerenciamento dos volumes no Docker.
+> docker wait – Aguarda o retorno da execução de um container para iniciar esse container.
+
+Obs.: É possível ver todos os comandos que o Docker possui, tendo o docker instalado, basta digitar no terminal docker --help

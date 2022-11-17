@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  # --- início de dados pra criação do container mysql --- #
+  mysql_db:
+    image: "mysql:8.0" # o 'image' equivale a um FROM do dockerfile, importa a imagem do dockerhub
+    container_name: mysqlserver # nomeando o container
+
+    ports: # redirect da porta padrão do mysql 1ª porta, do PC 3306, 2ª porta do CONTAINER 3307
+      - "3307:3306"
+    environment: # variáveis de ambiente, nesse caso, do mysql
+      MYSQL_DATABASE: filmes
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: r00tm)DT!
+      MYSQL_ROOT_PASSWORD: r00tm)DT!
+    volumes: # o 'hd externo' do container
+      - db_mysql:/var/lib/mysql
+    networks: # rede entre containers
+      - servers
+  # --- fim do container mysql --- #
+
+  # --- início de outro container - backend --- #
+  springweb:
+    container_name: dockerback
+    build: . # precisa do dockerfile pra gerar a imagem
+    ports:
+      - "8081:8080"
+    networks:
+      - servers
+    depends_on:
+      - mysql_db
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+volumes: # declaração do volume
+  db_mysql:
+
+networks: # declaração da network
+  servers:
+    driver: bridge

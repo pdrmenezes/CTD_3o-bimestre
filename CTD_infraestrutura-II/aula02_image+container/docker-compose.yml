@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  javaserver:
+    image: helloworld
+    container_name: javaserver
+    build:
+      context: .
+    ports:
+      - "8000:80"

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const Matheus = () => <div>Matheus Braga</div>;
+      const Jehan = () => <div>Jehan Lucas</div>;
+      const Anna = () => <div>Anna Karla</div>;
+      const Guilherme = () => <div>Guilherme Santos</div>;
+      const Maycon = () => <div>Maycon James</div>;
+      const Octavio = () => <div>Octavio Augusto</div>;
+
+      const App = () => (
+        <div>
+          <h1>Hello World!</h1>
+          <Matheus />
+          <Jehan />
+          <Anna />
+          <Guilherme />
+          <Maycon />
+          <Octavio />
+        </div>
+      );
+
+      ReactDOM.render(<App />, document.querySelector("#root"));
+    </script>
+  </body>
+</html>

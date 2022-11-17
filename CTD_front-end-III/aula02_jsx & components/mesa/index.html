@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React - Components</title>
+  </head>
+  <body>
+    <!-- importando react versão development -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <!-- importando Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX é JavaScript com XML para criação de componentes em React -->
+    <!-- Babel faz a transpilação de JSX para código entendido pelo navegador -->
+    <script type="text/babel">
+      const titulo1 = "Lista de Produtos em Estoque:";
+      const titulo2 = "Produtos em Falta:";
+      const arrayDeFrutas = [
+        "Maçã",
+        "Pêra",
+        "Laranja",
+        "Banana",
+        "Pêssego",
+        "Cereja",
+        "Kiwi",
+      ];
+
+      // LISTA DE PRODUTOS SEM MAP()
+
+      // function ProdutoEmEstoque(item) {
+      //   return (
+      //     <ul>
+      //       <li>{arrayDeFrutas[0]}</li>
+      //       <li>{arrayDeFrutas[1]}</li>
+      //       <li>{arrayDeFrutas[2]}</li>
+      //       <li>{arrayDeFrutas[3]}</li>
+      //     </ul>
+      //   );
+      // }
+
+      // function ProdutoEmFalta(item) {
+      //   return (
+      //     <ul>
+      //       <li>{arrayDeFrutas[4]}</li>
+      //       <li>{arrayDeFrutas[5]}</li>
+      //       <li>{arrayDeFrutas[6]}</li>
+      //     </ul>
+      //   );
+      // }
+
+      // const container = (
+      //   <>
+      //     <h1>{titulo1}</h1>
+      //     <ProdutoEmEstoque />
+      //     <h1>{titulo2}</h1>
+      //     <ProdutoEmFalta />
+      //   </>
+      // );
+
+      // LISTA DE PRODUTOS COM MAP()
+
+      function ProdutoEmEstoqueMap(item) {
+        return (
+          <ul>
+            {arrayDeFrutas.map((item, index) => {
+              while (index < 4) {
+                return <li>{item}</li>;
+              }
+            })}
+          </ul>
+        );
+      }
+
+      function ProdutoEmFaltaMap(item) {
+        return (
+          <ul>
+            {arrayDeFrutas.map((item, index) => {
+              while (index >= 4) {
+                return <li>{item}</li>;
+              }
+            })}
+          </ul>
+        );
+      }
+
+      const container = (
+        <>
+          <h1 style={{ fontFamily: "sans-serif" }}>{titulo1}</h1>
+          <ProdutoEmEstoqueMap />
+          <h1 style={{ fontFamily: "sans-serif" }}>{titulo2}</h1>
+          <ProdutoEmFaltaMap />
+        </>
+      );
+
+      // renderizando o container dentro do body da página
+      ReactDOM.render(container, document.querySelector("body"));
+    </script>
+  </body>
+</html>

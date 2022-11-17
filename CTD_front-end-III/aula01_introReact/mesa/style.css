@@ -1,0 +1,12 @@
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 1rem;
+}
+
+.thumb {
+  width: 150px;
+}

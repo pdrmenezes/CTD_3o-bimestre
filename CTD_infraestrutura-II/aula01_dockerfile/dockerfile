@@ -1,0 +1,5 @@
+#dockerfile fala sobre a imagem que vai ser usada no container
+
+# FROM/PULL trarão imagens do docker hub
+FROM nginx:latest 
+COPY /site /usr/share/nginx/html

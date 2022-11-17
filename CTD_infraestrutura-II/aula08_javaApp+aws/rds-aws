@@ -1,0 +1,24 @@
+criando instância backend
+- criando instância ubuntu
+- par de chaves
+- proteção contra encerramento
+- liberando porta 8080
+- clicar em conectar na instância e conectando via terminal 
+	- ocultar chave: <chmod 400 CTD-ECOMMERCE-G2.PEM>
+	- conectar usando a chave ssh <ssh -i “CTD-ECOMMERCE-G2.pem” ubuntu@ec2-18-221-34-71.us-east-2.compute.amazonaws.com>
+
+após conectado no backend
+1. sudo apt-get update
+2. sudo apt-get install openjdk-11-jdk -y
+3. sudo apt-get install maven -y
+4. git clone https://github…
+5. cd pastadoprojeto/
+6. mvn install
+7. cd target/
+# “nohup” desvincula a aplicação do terminal
+8. nohup java -jar nomedaaplicacao-0.0.1-SNAPSHOT.jar &
+# certificar que a porta 8080 tá liberada na aws
+
+- configuração de instância
+- alterar proteção contra encerramento
+- habilitar

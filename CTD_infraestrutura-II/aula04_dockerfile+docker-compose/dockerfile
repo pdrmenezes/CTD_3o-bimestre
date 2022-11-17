@@ -1,0 +1,10 @@
+# puxando imagem do dockerhub
+FROM openjdk:17-jdk-alpine3.14
+# o diretório pode ter o nome que quiser
+WORKDIR /diretorioprincipal
+# disponibilização de porta para uso da imagem
+EXPOSE 8080
+# copiando arquivo com 2 parâmetros [origem] [destino] aproveitando pra renomear o arquivo no destino
+COPY target/BibliotecaDeFilmes-0.0.1-SNAPSHOT.jar /diretorioprincipal/app.jar
+# comando equivalente a comando no terminal pra executar a variável de ambiente + tipo de arquivo + arquivo
+ENTRYPOINT ["java", "-jar", "app.jar"]

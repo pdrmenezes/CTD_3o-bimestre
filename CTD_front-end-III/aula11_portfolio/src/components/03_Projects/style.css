@@ -1,0 +1,27 @@
+.projects {
+}
+
+.title-projects {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.list-projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-list-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 50px;
+}
+
+.project-title {
+  font: weight 300;
+}
